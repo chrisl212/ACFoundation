@@ -104,7 +104,7 @@
         if (!f)
         {
             if (error)
-                *error = [ACError errorWithDomain:$("File Error") description:[ACString stringWithUTF8String:strerror(errno)] code:errno];
+                *error = [ACError errorWithDomain:$("File Read Error") description:[ACString stringWithUTF8String:strerror(errno)] code:errno];
             return nil;
         }
         
@@ -164,7 +164,14 @@
 
 - (ACString *)description
 {
-    return self;
+    return [ACString stringWithFormat:$("\"%s\""), self->string];
+}
+
+- (signed char)isEqual:(id)o
+{
+    if ([o isKindOfClass:[ACString class]])
+        return [self isEqualToString:o];
+    return [super isEqual:o];
 }
 
 - (signed char)isEqualToString:(ACString *)str
@@ -220,6 +227,23 @@
     free(delim);
     
     return retval;
+}
+
+- (void)writeToFile:(ACString *)path error:(ACError **)error
+{
+    FILE *f = fopen(path.UTF8String, "w");
+    if (!f)
+    {
+        if (error)
+            *error = [ACError errorWithDomain:$("File Write Error") description:$(strerror(errno)) code:errno];
+        return;
+    }
+    if (!(fwrite(self->string, self.length + 1, 1, f)) && self.length > 0)
+    {
+        if (error)
+            *error = [ACError errorWithDomain:$("File Write Error") description:$(strerror(ferror(f))) code:ferror(f)];
+    }
+    fclose(f);
 }
 
 #pragma mark - Copying

@@ -7,58 +7,13 @@
 //
 
 #import <stdio.h>
-#import "ACFoundation.h"
+#import "ACTest.h"
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        char fname[256];
-        
-        puts("File Tests\n-----------\nEnter file name:");
-        scanf("%s", fname);
-        
-        ACString *filePath = [ACString stringWithUTF8String:fname];
-        ACError *error;
-        ACString *fileContents = [ACString stringWithContentsOfFile:filePath error:&error];
-        if (error)
-            puts(error.description.UTF8String);
-        
-        if (fileContents)
-            puts([fileContents UTF8String]);
-        
-        puts("\nString Tests\n-----------");
-        
-        ACString *string1 = $("Foo");
-        ACString *string2 = $("Foo");
-        ACString *string3 = $("Bar foo");
-        
-        printf("'%s' is equal to '%s' : %c\n", string1.UTF8String, string2.UTF8String, ([string1 isEqualToString:string2]) ? 'Y' : 'N');
-        printf("'%s' is equal to '%s' : %c\n", string2.UTF8String, string3.UTF8String, ([string2 isEqualToString:string3]) ? 'Y' : 'N');
-        
-        //ACString *componentTest = $("String is XYZ separated by XYZ two delimiters");
-        //ACArray *components = [componentTest componentsSeparatedByString:$("XYZ")];
-        //puts(components.description.UTF8String);
-
-        puts("\nArray Tests\n-----------");
-
-        ACError *testError = [ACError errorWithDomain:$("Domain") description:$("Description") code:10];
-        ACArray *array = [ACArray arrayWithObjects:$("String 1"), $("String 2"), $("String 3"), $("String 4"), testError, nil];
-        puts(array.description.UTF8String);
-        
-        printf("Array contains %s : %c\n", testError.description.UTF8String, ([array containsObject:testError]) ? 'Y' : 'N');
-        printf("Array contains %s : %c\n", string1.description.UTF8String, ([array containsObject:string1]) ? 'Y' : 'N');
-        
-        [array removeObjectAtIndex:2];
-        
-        printf("Array should not contain \"String 3\" : %s\n", array.description.UTF8String);
-        
-        [filePath release];
-        [fileContents release];
-        [array release];
-        [testError release];
-        [string1 release];
-        [string2 release];
-        [string3 release];
-    }
-    puts("\n\nProgram end");
+int main(int argc, const char * argv[])
+{
+    ACTest *test = [[ACTest alloc] init];
+    [test test];
+    
+    [test release];
     return 0;
 }

@@ -8,6 +8,8 @@
 
 #import "ACObject.h"
 
+@class ACError;
+
 @interface ACArray : ACObject <ACCopying>
 {
     ACInteger count;
@@ -24,8 +26,10 @@
 - (ACInteger)count;
 - (BOOL)containsObject:(id)o;
 - (void)addObject:(id)o;
+- (void)insertObject:(id)o atIndex:(ACInteger)idx;
 - (void)removeObjectAtIndex:(ACInteger)idx;
 - (id)firstObject;
 - (id)lastObject;
+- (void)writeToFile:(ACString *)path error:(ACError **)error;
 
 @end

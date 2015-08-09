@@ -31,6 +31,7 @@
 - (char *)UTF8String;
 - (BOOL)isEqualToString:(ACString *)str;
 - (void)appendString:(ACString *)str;
+- (void)writeToFile:(ACString *)path error:(ACError **)error;
 //- (ACArray *)componentsSeparatedByString:(ACString *)str; not yet implemented
 
 @end

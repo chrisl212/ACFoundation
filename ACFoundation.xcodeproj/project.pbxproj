@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ABB728FC1B778FC900855B65 /* ACNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB728FA1B778FC900855B65 /* ACNumber.h */; };
 		ABB728FD1B778FC900855B65 /* ACNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB728FB1B778FC900855B65 /* ACNumber.m */; };
+		ABB729001B77986F00855B65 /* ACDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB728FE1B77986F00855B65 /* ACDictionary.h */; };
+		ABB729011B77986F00855B65 /* ACDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB728FF1B77986F00855B65 /* ACDictionary.m */; };
+		ABB729041B77B59900855B65 /* ACTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB729031B77B59900855B65 /* ACTest.m */; };
 		ABF16D1F1B763EAC002AC80C /* ACObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF16D111B763CF8002AC80C /* ACObject.m */; };
 		ABF16D221B764296002AC80C /* ACString.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF16D201B764296002AC80C /* ACString.h */; };
 		ABF16D231B764296002AC80C /* ACString.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF16D211B764296002AC80C /* ACString.m */; };
@@ -36,6 +39,10 @@
 /* Begin PBXFileReference section */
 		ABB728FA1B778FC900855B65 /* ACNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNumber.h; sourceTree = "<group>"; };
 		ABB728FB1B778FC900855B65 /* ACNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNumber.m; sourceTree = "<group>"; };
+		ABB728FE1B77986F00855B65 /* ACDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDictionary.h; sourceTree = "<group>"; };
+		ABB728FF1B77986F00855B65 /* ACDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDictionary.m; sourceTree = "<group>"; };
+		ABB729021B77B59900855B65 /* ACTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTest.h; sourceTree = "<group>"; };
+		ABB729031B77B59900855B65 /* ACTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTest.m; sourceTree = "<group>"; };
 		ABF16D0F1B763CE0002AC80C /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		ABF16D101B763CF8002AC80C /* ACObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACObject.h; sourceTree = "<group>"; };
 		ABF16D111B763CF8002AC80C /* ACObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACObject.m; sourceTree = "<group>"; };
@@ -82,6 +89,8 @@
 				ABF16D3A1B765E43002AC80C /* ACError.m */,
 				ABF16D351B765A18002AC80C /* ACArray.h */,
 				ABF16D361B765A18002AC80C /* ACArray.m */,
+				ABB728FE1B77986F00855B65 /* ACDictionary.h */,
+				ABB728FF1B77986F00855B65 /* ACDictionary.m */,
 				ABB728FA1B778FC900855B65 /* ACNumber.h */,
 				ABB728FB1B778FC900855B65 /* ACNumber.m */,
 				ABF16D0F1B763CE0002AC80C /* Makefile */,
@@ -102,6 +111,8 @@
 		ABF16D291B76459F002AC80C /* ACFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				ABB729021B77B59900855B65 /* ACTest.h */,
+				ABB729031B77B59900855B65 /* ACTest.m */,
 				ABF16D2A1B76459F002AC80C /* main.m */,
 			);
 			path = ACFoundationTests;
@@ -116,6 +127,7 @@
 			files = (
 				ABB728FC1B778FC900855B65 /* ACNumber.h in Headers */,
 				ABF16D221B764296002AC80C /* ACString.h in Headers */,
+				ABB729001B77986F00855B65 /* ACDictionary.h in Headers */,
 				ABF16D3B1B765E43002AC80C /* ACError.h in Headers */,
 				ABF16D371B765A18002AC80C /* ACArray.h in Headers */,
 				ABF16D341B7659E7002AC80C /* ACFoundation.h in Headers */,
@@ -201,6 +213,7 @@
 				ABB728FD1B778FC900855B65 /* ACNumber.m in Sources */,
 				ABF16D231B764296002AC80C /* ACString.m in Sources */,
 				ABF16D381B765A18002AC80C /* ACArray.m in Sources */,
+				ABB729011B77986F00855B65 /* ACDictionary.m in Sources */,
 				ABF16D3C1B765E43002AC80C /* ACError.m in Sources */,
 				ABF16D1F1B763EAC002AC80C /* ACObject.m in Sources */,
 			);
@@ -211,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF16D2B1B76459F002AC80C /* main.m in Sources */,
+				ABB729041B77B59900855B65 /* ACTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

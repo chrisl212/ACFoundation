@@ -36,6 +36,7 @@ typedef signed long int ACInteger;
 + (BOOL)isSubclassOfClass:(Class)c;
 + (id)alloc;
 + (id)new;
++ (BOOL)conformsToProtocol:(Protocol *)p;
 
 - (id)init;
 - (void)release;
@@ -46,5 +47,6 @@ typedef signed long int ACInteger;
 - (ACString *)description;
 - (BOOL)isKindOfClass:(Class)c;
 - (BOOL)isEqual:(id)o;
+- (IMP)methodForSelector:(SEL)s;
 
 @end

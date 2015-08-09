@@ -46,6 +46,11 @@ int32_t retainCount;
     return [[self alloc] init];
 }
 
++ (signed char)conformsToProtocol:(Protocol *)p
+{
+    return class_conformsToProtocol(self, p);
+}
+
 #pragma mark - Instance Methods
 
 - (id)init
@@ -84,7 +89,7 @@ int32_t retainCount;
 
 - (ACString *)description
 {
-    return [[ACString alloc] initWithFormat:$("Object of class %s - retain count: %d"), class_getName(self->isa), retainCount];
+    return [[ACString alloc] initWithFormat:$("\"[%p] Object of class %s - retain count: %d\""), self, class_getName(self->isa), retainCount];
 }
 
 - (signed char)isKindOfClass:(Class)c
@@ -95,6 +100,11 @@ int32_t retainCount;
 - (signed char)isEqual:(id)o
 {
     return (self == o);
+}
+
+- (IMP)methodForSelector:(SEL)s
+{
+    return class_getMethodImplementation(self->isa, s);
 }
 
 @end

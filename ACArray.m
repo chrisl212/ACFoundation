@@ -151,7 +151,7 @@
     
     for (int i = 0; i < count; i++)
     {
-        ACString *objString = [ACString stringWithFormat:$("%s\"%s\""), (firstObj) ? "" : ",", [objects[i] description].UTF8String];
+        ACString *objString = [ACString stringWithFormat:$("%s%s"), (firstObj) ? "" : ",", [objects[i] description].UTF8String];
         [desc appendString:objString];
         firstObj = NO;
     }
@@ -166,6 +166,35 @@
     size += sizeof(o);
     objects = realloc(objects, size);
     objects[count++] = o;
+}
+
+- (void)insertObject:(id)o atIndex:(ACInteger)idx
+{
+    count++;
+    size += sizeof(o);
+    id *newobjs = malloc(size);
+    /*
+               0  1  2  3  4
+      orig = [ 3, 4, 1, 9, 3]
+     insert '6' at index 2
+     
+              0  1  2  3  4  5
+      end = [ 3, 4, 6, 1, 9, 3]
+     */
+    
+    for (ACInteger i = 0, p = 0; i < count; i++, p++)
+    {
+        if (i == idx)
+        {
+            newobjs[i] = o;
+            p--;
+            continue;
+        }
+        newobjs[i] = self->objects[p];
+    }
+    
+    free(self->objects);
+    self->objects = newobjs;
 }
 
 - (void)removeObjectAtIndex:(ACInteger)idx
@@ -195,6 +224,11 @@
 - (id)lastObject
 {
     return [self objectAtIndex:(count-1)];
+}
+
+- (void)writeToFile:(ACString *)path error:(ACError **)error
+{
+    [[self description] writeToFile:path error:error];
 }
 
 #pragma mark - Copying

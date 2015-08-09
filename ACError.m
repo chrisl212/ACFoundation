@@ -29,7 +29,7 @@
 
 - (ACString *)description
 {
-    return [[ACString alloc] initWithFormat:$("%s - Code %d : %s"), errorDomain.UTF8String, errorCode, errorDescription.UTF8String];
+    return [[ACString alloc] initWithFormat:$("\"%s - Code %d : %s\""), errorDomain.UTF8String, errorCode, errorDescription.UTF8String];
 }
 
 - (void)dealloc
