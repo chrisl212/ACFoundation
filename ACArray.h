@@ -8,7 +8,7 @@
 
 #import "ACObject.h"
 
-@interface ACArray : ACObject
+@interface ACArray : ACObject <ACCopying>
 {
     ACInteger count;
     id *objects;
@@ -24,5 +24,8 @@
 - (ACInteger)count;
 - (BOOL)containsObject:(id)o;
 - (void)addObject:(id)o;
+- (void)removeObjectAtIndex:(ACInteger)idx;
+- (id)firstObject;
+- (id)lastObject;
 
 @end

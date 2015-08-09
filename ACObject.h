@@ -20,6 +20,12 @@ typedef signed long int ACInteger;
 
 @class ACString;
 
+@protocol ACCopying
+
+- (id)copy;
+
+@end
+
 @interface ACObject
 {
     Class isa;

@@ -10,6 +10,7 @@
 #import "ACString.h"
 #import <stdlib.h>
 #import <stdarg.h>
+#import <string.h>
 
 @implementation ACArray
 
@@ -63,6 +64,11 @@
     va_end(list);
     
     return array;
+}
+
+- (id)init
+{
+    return [self initWithObjects:nil];
 }
 
 - (id)initWithObjects:(id)o, ...
@@ -160,6 +166,49 @@
     size += sizeof(o);
     objects = realloc(objects, size);
     objects[count++] = o;
+}
+
+- (void)removeObjectAtIndex:(ACInteger)idx
+{
+    size_t sz = sizeof([self objectAtIndex:idx]);
+    ACInteger newSize = size - sz;
+    id *newobjs = malloc(newSize);
+    for (ACInteger i = 0, p = 0; i < count; i++)
+        if (i != idx)
+            newobjs[p++] = objects[i];
+    free(self->objects);
+    self->objects = newobjs;
+    count--;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    free(self->objects);
+}
+
+- (id)firstObject
+{
+    return [self objectAtIndex:0];
+}
+
+- (id)lastObject
+{
+    return [self objectAtIndex:(count-1)];
+}
+
+#pragma mark - Copying
+
+- (id)copy
+{
+    //TODO: untested
+    id *objs = malloc(size);
+    memcpy(objs, self->objects, size);
+    ACArray *arr = [ACArray alloc];
+    arr->objects = objs;
+    arr->count = count;
+    arr->size = size;
+    return arr;
 }
 
 @end

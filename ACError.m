@@ -20,8 +20,8 @@
 {
     if (self = [super init])
     {
-        errorDomain = domain;
-        errorDescription = desc;
+        errorDomain = [domain copy];
+        errorDescription = [desc copy];
         errorCode = code;
     }
     return self;
@@ -30,6 +30,19 @@
 - (ACString *)description
 {
     return [[ACString alloc] initWithFormat:$("%s - Code %d : %s"), errorDomain.UTF8String, errorCode, errorDescription.UTF8String];
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+#pragma mark - Copying
+
+- (id)copy
+{
+    //TODO: untested
+    return [ACError errorWithDomain:errorDomain description:errorDescription code:errorCode];
 }
 
 @end

@@ -68,6 +68,11 @@
 
 #pragma mark - Instance Methods
 
+- (id)init
+{
+    return $("");
+}
+
 - (id)initWithUTF8String:(const char *)str
 {
     if (self = [super init])
@@ -215,6 +220,13 @@
     free(delim);
     
     return retval;
+}
+
+#pragma mark - Copying
+
+- (id)copy
+{
+    return [ACString stringWithUTF8String:self->string];
 }
 
 @end

@@ -12,7 +12,7 @@
 
 @class ACError, ACArray;
 
-@interface ACString : ACObject
+@interface ACString : ACObject <ACCopying>
 {
     char *string;
 }
@@ -31,6 +31,6 @@
 - (char *)UTF8String;
 - (BOOL)isEqualToString:(ACString *)str;
 - (void)appendString:(ACString *)str;
-- (ACArray *)componentsSeparatedByString:(ACString *)str;
+//- (ACArray *)componentsSeparatedByString:(ACString *)str; not yet implemented
 
 @end

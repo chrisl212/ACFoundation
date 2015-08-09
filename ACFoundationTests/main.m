@@ -34,9 +34,9 @@ int main(int argc, const char * argv[]) {
         printf("'%s' is equal to '%s' : %c\n", string1.UTF8String, string2.UTF8String, ([string1 isEqualToString:string2]) ? 'Y' : 'N');
         printf("'%s' is equal to '%s' : %c\n", string2.UTF8String, string3.UTF8String, ([string2 isEqualToString:string3]) ? 'Y' : 'N');
         
-        ACString *componentTest = $("String is XYZ separated by XYZ two delimiters");
-        ACArray *components = [componentTest componentsSeparatedByString:$("XYZ")];
-        puts(components.description.UTF8String);
+        //ACString *componentTest = $("String is XYZ separated by XYZ two delimiters");
+        //ACArray *components = [componentTest componentsSeparatedByString:$("XYZ")];
+        //puts(components.description.UTF8String);
 
         puts("\nArray Tests\n-----------");
 
@@ -45,10 +45,20 @@ int main(int argc, const char * argv[]) {
         puts(array.description.UTF8String);
         
         printf("Array contains %s : %c\n", testError.description.UTF8String, ([array containsObject:testError]) ? 'Y' : 'N');
-        printf("Array contains %s : %c", string1.description.UTF8String, ([array containsObject:string1]) ? 'Y' : 'N');
+        printf("Array contains %s : %c\n", string1.description.UTF8String, ([array containsObject:string1]) ? 'Y' : 'N');
+        
+        [array removeObjectAtIndex:2];
+        
+        printf("Array should not contain \"String 3\" : %s\n", array.description.UTF8String);
         
         [filePath release];
         [fileContents release];
+        [array release];
+        [testError release];
+        [string1 release];
+        [string2 release];
+        [string3 release];
     }
+    puts("\n\nProgram end");
     return 0;
 }

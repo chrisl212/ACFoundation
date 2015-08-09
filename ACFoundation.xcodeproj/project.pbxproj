@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABB728FC1B778FC900855B65 /* ACNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB728FA1B778FC900855B65 /* ACNumber.h */; };
+		ABB728FD1B778FC900855B65 /* ACNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB728FB1B778FC900855B65 /* ACNumber.m */; };
 		ABF16D1F1B763EAC002AC80C /* ACObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF16D111B763CF8002AC80C /* ACObject.m */; };
 		ABF16D221B764296002AC80C /* ACString.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF16D201B764296002AC80C /* ACString.h */; };
 		ABF16D231B764296002AC80C /* ACString.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF16D211B764296002AC80C /* ACString.m */; };
@@ -32,6 +34,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ABB728FA1B778FC900855B65 /* ACNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNumber.h; sourceTree = "<group>"; };
+		ABB728FB1B778FC900855B65 /* ACNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNumber.m; sourceTree = "<group>"; };
 		ABF16D0F1B763CE0002AC80C /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		ABF16D101B763CF8002AC80C /* ACObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACObject.h; sourceTree = "<group>"; };
 		ABF16D111B763CF8002AC80C /* ACObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACObject.m; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				ABF16D3A1B765E43002AC80C /* ACError.m */,
 				ABF16D351B765A18002AC80C /* ACArray.h */,
 				ABF16D361B765A18002AC80C /* ACArray.m */,
+				ABB728FA1B778FC900855B65 /* ACNumber.h */,
+				ABB728FB1B778FC900855B65 /* ACNumber.m */,
 				ABF16D0F1B763CE0002AC80C /* Makefile */,
 				ABF16D291B76459F002AC80C /* ACFoundationTests */,
 				ABF16D1B1B763D87002AC80C /* Products */,
@@ -108,6 +114,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB728FC1B778FC900855B65 /* ACNumber.h in Headers */,
 				ABF16D221B764296002AC80C /* ACString.h in Headers */,
 				ABF16D3B1B765E43002AC80C /* ACError.h in Headers */,
 				ABF16D371B765A18002AC80C /* ACArray.h in Headers */,
@@ -191,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB728FD1B778FC900855B65 /* ACNumber.m in Sources */,
 				ABF16D231B764296002AC80C /* ACString.m in Sources */,
 				ABF16D381B765A18002AC80C /* ACArray.m in Sources */,
 				ABF16D3C1B765E43002AC80C /* ACError.m in Sources */,
@@ -420,6 +428,7 @@
 				ABF16D1E1B763D87002AC80C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABF16D2C1B76459F002AC80C /* Build configuration list for PBXNativeTarget "ACFoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +437,7 @@
 				ABF16D2E1B76459F002AC80C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

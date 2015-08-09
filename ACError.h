@@ -10,7 +10,7 @@
 
 typedef ACInteger ACErrorCode;
 
-@interface ACError : ACObject
+@interface ACError : ACObject <ACCopying>
 {
     ACString *errorDomain;
     ACString *errorDescription;
